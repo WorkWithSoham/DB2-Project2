@@ -24,6 +24,8 @@ class GetDBData:
         query[query_2_statement] = query_2
         query_3_statement, query_3 = self.get_artwork_data_filter_price()
         query[query_3_statement] = query_3
+        query_4_statement, query_4 = self.get_painting_sculpture_artwork_details()
+        query[query_4_statement] = query_4
         self.write_query_outputs(query)
 
     def get_artist_data(self):
@@ -51,6 +53,20 @@ class GetDBData:
             }
         ]))
         return query_3_statement, data
+
+    def get_painting_sculpture_artwork_details(self):
+        query_4_statement = "Get all artwork details where artwork type is painting or sculpture"
+        artist_collection = self.mongo_db_obj.db['Artwork']
+        data = list(artist_collection.aggregate([
+            {"$match":
+                {
+                    'form': {
+                        '$in': ["painting", "sculpture"]
+                    }
+                }
+            }
+        ]))
+        return query_4_statement, data
 
     @staticmethod
     def write_query_outputs(query):
