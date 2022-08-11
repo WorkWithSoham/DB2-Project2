@@ -4,7 +4,7 @@ Query 1: Get Data of all Artist
 
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb667"
+        "$oid": "62f574f46ffef404097f9c15"
     },
     "aID": 10,
     "artistName": "Jasper Johns",
@@ -35,7 +35,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb66e"
+        "$oid": "62f574f46ffef404097f9c1c"
     },
     "aID": 4,
     "artistName": "Abdur Rahman",
@@ -51,7 +51,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb665"
+        "$oid": "62f574f46ffef404097f9c13"
     },
     "aID": 8,
     "artistName": "Raja Ravi Varma",
@@ -67,7 +67,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb674"
+        "$oid": "62f574f46ffef404097f9c22"
     },
     "aID": 7,
     "artistName": "Nandalal Bose",
@@ -83,7 +83,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb666"
+        "$oid": "62f574f46ffef404097f9c14"
     },
     "aID": 9,
     "artistName": "Sunil Das",
@@ -114,7 +114,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb663"
+        "$oid": "62f574f46ffef404097f9c11"
     },
     "aID": 2,
     "artistName": "Ismail Gulg",
@@ -135,7 +135,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb668"
+        "$oid": "62f574f46ffef404097f9c16"
     },
     "aID": 11,
     "artistName": "Winslow Homer",
@@ -171,7 +171,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb66b"
+        "$oid": "62f574f46ffef404097f9c19"
     },
     "aID": 16,
     "artistName": "Ekene Maduka",
@@ -187,7 +187,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb66f"
+        "$oid": "62f574f46ffef404097f9c1d"
     },
     "aID": 5,
     "artistName": "Kalipada Ghoshal",
@@ -203,7 +203,39 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb673"
+        "$oid": "62f574f46ffef404097f9c1a"
+    },
+    "aID": 17,
+    "artistName": "Olu Amoda",
+    "birthDate": "1994-07-15",
+    "stateName": "Texas",
+    "artwork": [
+        {
+            "title": "Polygraph",
+            "price": 15000,
+            "form": "sculpture"
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "62f574f46ffef404097f9c1b"
+    },
+    "aID": 18,
+    "artistName": "Koki Tanaka",
+    "birthDate": "1994-07-15",
+    "stateName": "Texas",
+    "artwork": [
+        {
+            "title": "Old House in Seoul",
+            "price": 17000,
+            "form": "sculpture"
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "62f574f46ffef404097f9c21"
     },
     "aID": 6,
     "artistName": "Manishi Dey",
@@ -229,39 +261,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb66c"
-    },
-    "aID": 17,
-    "artistName": "Olu Amoda",
-    "birthDate": "1994-07-15",
-    "stateName": "Texas",
-    "artwork": [
-        {
-            "title": "Polygraph",
-            "price": 15000,
-            "form": "sculpture"
-        }
-    ]
-}
-{
-    "_id": {
-        "$oid": "62f07b266a625b56ec5eb66d"
-    },
-    "aID": 18,
-    "artistName": "Koki Tanaka",
-    "birthDate": "1994-07-15",
-    "stateName": "Texas",
-    "artwork": [
-        {
-            "title": "Old House in Seoul",
-            "price": 17000,
-            "form": "sculpture"
-        }
-    ]
-}
-{
-    "_id": {
-        "$oid": "62f07b266a625b56ec5eb664"
+        "$oid": "62f574f46ffef404097f9c12"
     },
     "aID": 3,
     "artistName": "Shakir Ali",
@@ -282,7 +282,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb669"
+        "$oid": "62f574f46ffef404097f9c17"
     },
     "aID": 14,
     "artistName": "Georgia O'Keeffe",
@@ -338,7 +338,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb672"
+        "$oid": "62f574f46ffef404097f9c20"
     },
     "aID": 21,
     "artistName": "Zhan Wang",
@@ -354,7 +354,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb670"
+        "$oid": "62f574f46ffef404097f9c1e"
     },
     "aID": 19,
     "artistName": "Tatsuo Miyajima",
@@ -370,7 +370,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb675"
+        "$oid": "62f574f46ffef404097f9c23"
     },
     "aID": 12,
     "artistName": "Albert Bierstadt",
@@ -441,7 +441,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb662"
+        "$oid": "62f574f46ffef404097f9c10"
     },
     "aID": 1,
     "artistName": "Abed Abdi",
@@ -467,7 +467,23 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb676"
+        "$oid": "62f574f46ffef404097f9c1f"
+    },
+    "aID": 20,
+    "artistName": "Li Chen",
+    "birthDate": "2000-01-20",
+    "stateName": "Oklahoma",
+    "artwork": [
+        {
+            "title": "Twilight Breeze",
+            "price": 15000,
+            "form": "painting"
+        }
+    ]
+}
+{
+    "_id": {
+        "$oid": "62f574f46ffef404097f9c24"
     },
     "aID": 13,
     "artistName": "Edward Hopper",
@@ -503,23 +519,7 @@ Query 1: Get Data of all Artist
 }
 {
     "_id": {
-        "$oid": "62f07b266a625b56ec5eb671"
-    },
-    "aID": 20,
-    "artistName": "Li Chen",
-    "birthDate": "2000-01-20",
-    "stateName": "Oklahoma",
-    "artwork": [
-        {
-            "title": "Twilight Breeze",
-            "price": 15000,
-            "form": "painting"
-        }
-    ]
-}
-{
-    "_id": {
-        "$oid": "62f07b266a625b56ec5eb66a"
+        "$oid": "62f574f46ffef404097f9c18"
     },
     "aID": 15,
     "artistName": "Modupeola Fadugba",

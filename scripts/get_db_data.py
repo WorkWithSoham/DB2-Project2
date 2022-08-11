@@ -12,7 +12,7 @@ from scripts.mongo_db_connection import MongoDBConnection
 class GetDBData:
     def __init__(self, query_option_list):
         if len(query_option_list) == 1:
-            self.mongo_db_obj = MongoDBConnection(query_option_list[2])
+            self.mongo_db_obj = MongoDBConnection(query_option_list[0])
         else:
             self.mongo_db_obj = MongoDBConnection()
 
