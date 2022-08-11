@@ -6,7 +6,7 @@ from commons.generic_constants import GenericConstants
 class MongoDBConnection:
     def __init__(self, url=None):
         if url:
-            self.connection = MongoDBConnection(url)
+            self.connection = MongoClient(url)
         else:
             self.connection = MongoClient(GenericConstants.BASE_URL)
         self.db = self.connection['DB2']
