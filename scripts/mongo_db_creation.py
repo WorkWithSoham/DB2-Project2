@@ -103,7 +103,7 @@ class MongoDbCreation:
                     'customers': list()
                 }
             customer = {}
-            if row['name']:
+            if type(row['name']) == str:
                 customer = {
                     'customerName': row['name'],
                     'city': row['city'],

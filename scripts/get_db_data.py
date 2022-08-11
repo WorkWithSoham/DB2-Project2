@@ -26,6 +26,8 @@ class GetDBData:
         query[query_3_statement] = query_3
         query_4_statement, query_4 = self.get_customer_count()
         query[query_4_statement] = query_4
+        query_5_statement, query_5 = self.get_painting_sculpture_artwork_details()
+        query[query_5_statement] = query_5
         self.write_query_outputs(query)
 
     def get_artist_data(self):
@@ -63,22 +65,40 @@ class GetDBData:
         return query_3_statement, data
 
     def get_customer_count(self):
-        query_4_statement = "Get name of artwork and total amount he got after he sold his artwork"
+        query_4_statement = "Get name of artwork and total customers who bought painting"
         artwork_collection = self.mongo_db_obj.db['Artwork']
         data = artwork_collection.aggregate([
             {
-                '$unwind': "$customers"
+                '$project': {
+                    '_id': 0,
+                    'artistName': 1,
+                    'customerCount': {
+                        "$size": "$customers"
+                    }
+                }
             },
             {
-                '$group': {
-                    '_id': "$artistName",
-                    'customerCount': {
-                        "$sum": "$customers.price"
-                    }
+                '$sort': {
+                    'customerCount': -1
                 }
             }
         ])
+
         return query_4_statement, data
+
+    def get_painting_sculpture_artwork_details(self):
+        query_5_statement = "Get all artwork details where artwork type is painting or sculpture"
+        artist_collection = self.mongo_db_obj.db['Artwork']
+        data = list(artist_collection.aggregate([
+            {"$match":
+                {
+                    'form': {
+                        '$in': ["painting", "sculpture"]
+                    }
+                }
+            }
+        ]))
+        return query_5_statement, data
 
     @staticmethod
     def write_query_outputs(query):
