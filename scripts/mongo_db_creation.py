@@ -10,7 +10,9 @@ from scripts.mongo_db_connection import MongoDBConnection
 
 class MongoDbCreation:
     def __init__(self, cmd_list):
-        url = cmd_list[0]
+        url = None
+        if cmd_list:
+            url = cmd_list[0]
         self.mongo_db_conn_obj = MongoDBConnection(url)
         self.mongo_db_conn_obj.drop_collections()
 

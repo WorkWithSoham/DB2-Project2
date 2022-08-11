@@ -24,6 +24,8 @@ class GetDBData:
         query[query_2_statement] = query_2
         query_3_statement, query_3 = self.get_artwork_data_filter_price()
         query[query_3_statement] = query_3
+        query_4_statement, query_4 = self.get_customer_count()
+        query[query_4_statement] = query_4
         self.write_query_outputs(query)
 
     def get_artist_data(self):
@@ -39,25 +41,51 @@ class GetDBData:
         return query_2_statement, data
 
     def get_artwork_data_filter_price(self):
-        query_3_statement = "Get all artists details whose artworks price is greater than equal to 20000"
+        query_3_statement = "Get all artists Name, Birth Date and State whose artworks price is greater than equal to 20000"
         artist_collection = self.mongo_db_obj.db['Artist']
         data = list(artist_collection.aggregate([
-            {"$match":
-                {
+            {
+                "$match": {
                     'artwork.price': {
                         '$gte': 20000
                     }
                 }
+            },
+            {
+                '$project': {
+                    '_id': 0,
+                    'artistName': 1,
+                    'birthDate': 1,
+                    'stateName': 1
+                }
             }
         ]))
         return query_3_statement, data
+
+    def get_customer_count(self):
+        query_4_statement = "Get name of artwork and total amount he got after he sold his artwork"
+        artwork_collection = self.mongo_db_obj.db['Artwork']
+        data = artwork_collection.aggregate([
+            {
+                '$unwind': "$customers"
+            },
+            {
+                '$group': {
+                    '_id': "$artistName",
+                    'customerCount': {
+                        "$sum": "$customers.price"
+                    }
+                }
+            }
+        ])
+        return query_4_statement, data
 
     @staticmethod
     def write_query_outputs(query):
         i = 1
         for query_statement, query_data in query.items():
             with open(f'output_files/query_{i}', 'w') as f:
-                out = f'Query {i}: {query_statement}\n\n\n'
+                out = f'Query {i}: {query_statement}\n\n'
                 for data in query_data:
                     out = f'{out}\n{str(json.dumps(json.loads(json_util.dumps(data)), indent=4))}'
                 f.write(out)
