@@ -4,15 +4,17 @@ from commons.generic_constants import GenericConstants
 
 
 class MongoDBConnection:
-    def __init__(self):
-        self.connection = MongoClient(GenericConstants.BASE_URL)
+    def __init__(self, url=None):
+        if url:
+            self.connection = MongoDBConnection(url)
+        else:
+            self.connection = MongoClient(GenericConstants.BASE_URL)
         self.db = self.connection['DB2']
-        if self.db.list_collection_names():
-            self.drop_collections()
 
     def drop_collections(self):
-        for col in self.db.list_collection_names():
-            self.db[col].drop()
+        if self.db.list_collection_names():
+            for col in self.db.list_collection_names():
+                self.db[col].drop()
 
     def create_collection(self, collection_name):
         collection = self.db[collection_name]

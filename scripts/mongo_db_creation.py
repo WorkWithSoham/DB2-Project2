@@ -9,8 +9,10 @@ from scripts.mongo_db_connection import MongoDBConnection
 
 
 class MongoDbCreation:
-    def __init__(self):
-        self.mongo_db_conn_obj = MongoDBConnection()
+    def __init__(self, cmd_list):
+        url = cmd_list[0]
+        self.mongo_db_conn_obj = MongoDBConnection(url)
+        self.mongo_db_conn_obj.drop_collections()
 
     def create_mongo_db(self):
         input_data = self.read_input_files(GenericConstants.INPUT_FILES_DIRS)
@@ -112,9 +114,5 @@ class MongoDbCreation:
 
 
 if __name__ == '__main__':
-    # cmd_args = sys.argv
-    # connection_obj = MongoDBConnection(*cmd_args[1:])
-    # db_obj = MongoDbCreation(connection_obj)
-    # db_obj.extract_files()
-
-    MongoDbCreation().create_mongo_db()
+    cmd_args = sys.argv
+    MongoDbCreation(cmd_args[1:]).create_mongo_db()
