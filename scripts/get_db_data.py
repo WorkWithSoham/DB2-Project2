@@ -26,8 +26,10 @@ class GetDBData:
         query[query_3_statement] = query_3
         query_4_statement, query_4 = self.get_customer_count()
         query[query_4_statement] = query_4
-        query_5_statement, query_5 = self.get_painting_sculpture_artwork_details()
+        query_5_statement, query_5 = self.get_total_price_for_art_form()
         query[query_5_statement] = query_5
+        query_6_statement, query_6 = self.get_painting_sculpture_artwork_details()
+        query[query_6_statement] = query_6
         self.write_query_outputs(query)
 
     def get_artist_data(self):
@@ -96,9 +98,24 @@ class GetDBData:
                         '$in': ["painting", "sculpture"]
                     }
                 }
-            }
+             }
         ]))
         return query_5_statement, data
+
+    def get_total_price_for_art_form(self):
+        query_6_statement = "Get total price for each form of artwork"
+        artist_collection = self.mongo_db_obj.db['Artwork']
+        data = list(artist_collection.aggregate([
+            {
+                "$group": {
+                    "_id": "$form",
+                    "totalPrice": {
+                        "$sum": "$price"
+                    }
+                }
+            }
+        ]))
+        return query_6_statement, data
 
     @staticmethod
     def write_query_outputs(query):
