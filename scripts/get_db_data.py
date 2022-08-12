@@ -26,9 +26,9 @@ class GetDBData:
         query[query_3_statement] = query_3
         query_4_statement, query_4 = self.get_customer_count()
         query[query_4_statement] = query_4
-        query_5_statement, query_5 = self.get_total_price_for_art_form()
+        query_5_statement, query_5 = self.get_painting_sculpture_artwork_details()
         query[query_5_statement] = query_5
-        query_6_statement, query_6 = self.get_painting_sculpture_artwork_details()
+        query_6_statement, query_6 = self.get_total_price_for_art_form()
         query[query_6_statement] = query_6
         self.write_query_outputs(query)
 
@@ -112,6 +112,13 @@ class GetDBData:
                     "totalPrice": {
                         "$sum": "$price"
                     }
+                }
+            },
+            {
+                "$project": {
+                    "form": "$_id",
+                    "totalPrice": "$totalPrice",
+                    "_id": 0
                 }
             }
         ]))
